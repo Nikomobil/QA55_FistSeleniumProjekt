@@ -23,6 +23,28 @@ public class FindElementWebShopTests {
     public void tearDown(){
         driver.quit();
     }
+    @Test
+    public void findElement(){
+        WebElement element = driver.findElement(By.linkText("Shopping cart"));
+        System.out.println(element.getTagName());
+        WebElement cart = driver.findElement(By.partialLinkText("cart"));
+        System.out.println(cart.getTagName());
+    }
+
+    @Test
+    public void findElementByCssSelector(){
+        driver.findElement(By.cssSelector("#bar-notification"));
+        driver.findElement(By.cssSelector("ul"));
+        WebElement element = driver.findElement(By.cssSelector(".top-menu"));
+        System.out.println(element.getTagName());
+        driver.findElement(By.cssSelector("[href='/apparel-shoes']"));
+        //contains -> *
+        driver.findElement(By.cssSelector("[href*='/apparel']"));
+        //start -> ^
+        driver.findElement(By.cssSelector("[href^='/app']"));
+        // end on -> $
+        driver.findElement(By.cssSelector("[href$='/shoes']"));
+    }
 
     @Test
     public void findElementById(){
@@ -51,4 +73,6 @@ public class FindElementWebShopTests {
         WebElement topMenu2 = driver.findElement(By.className("mob-top-menu"));
         System.out.println(topMenu2.getText());
     }
+
+
 }
