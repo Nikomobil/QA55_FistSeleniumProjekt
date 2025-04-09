@@ -48,7 +48,7 @@ public class FindElementWebShopTests {
 
     @Test
     public void findElementById(){
-        WebElement element = driver.findElement(By.id("mob-menu-button"));
+        WebElement element = driver.findElement(By.id("dialog-notifications-success"));
         System.out.println(element.getTagName());
         WebElement element1 = driver.findElement(By.id("bar-notification"));
         System.out.println(element1.getTagName());
@@ -74,5 +74,28 @@ public class FindElementWebShopTests {
         System.out.println(topMenu2.getText());
     }
 
+    @Test
+    public void findElementByXpath(){
+        // any tag
+//        driver.findElement(By.xpath("//*[@id='bar-notification']"));
+        driver.findElement(By.xpath("//div[@id='bar-notification']"));
+        driver.findElement(By.xpath("//ul"));
+        driver.findElement(By.xpath("//ul[@class='top-menu']"));
+        driver.findElement(By.xpath("//a[contains(.,'Gift')]"));
+        //Text
+        driver.findElement(By.xpath("//span[text() = 'Sign up for our newsletter:']"));
+        driver.findElement(By.xpath("//input[starts-with(@value,'Se')]"));
+        driver.findElement(By.xpath("//div[@class='header-menu']/.."));
 
-}
+        driver.findElement(By.xpath("//strong/parent::*"));
+        driver.findElement(By.xpath("//strong/parent::div"));
+
+
+        driver.findElement(By.xpath("//script/ancestor::*"));
+        driver.findElement(By.xpath("//script/ancestor::head"));
+        }
+
+    }
+
+
+

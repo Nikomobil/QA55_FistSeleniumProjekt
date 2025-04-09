@@ -83,5 +83,53 @@ public class FindElementTests {
         // end on -> $
         driver.findElement(By.cssSelector("[href$='search']"));
 
+        //tag + id
+        driver.findElement(By.cssSelector("input#city"));
+
+        //tag + class
+        driver.findElement(By.cssSelector("div.mobile-header"));
+        driver.findElement(By.cssSelector("div.search-card"));
+
+        //tag + id + [attribute = 'value']
+        driver.findElement(By.cssSelector("input#city[type=text]"));
     }
+    //   //*[@attribute = 'value']
+    @Test
+    public void findElementByXpath(){
+        // tag -> xpath - //tag
+        // find element by tag name;
+        driver.findElement(By.xpath("//h1"));
+
+        // id -> xpath - //*[@id = 'value']
+        driver.findElement(By.xpath("//input[@id = 'city']"));
+
+        // className-> xpath - //*[@class = 'value']
+        driver.findElement(By.xpath("//div[@class='header']"));
+
+        // contains -> xpath - //*[contains(.,'Text')]
+        driver.findElement(By.xpath("//h2[contains(.,'Yalla')]"));
+
+        //qual -> //*[text() = 'Text']
+        driver.findElement(By.xpath("//h2[text() = 'Type your data and hit Yalla!']"));
+        driver.findElement(By.xpath("//h2[.= 'Type your data and hit Yalla!']"));
+
+        //start-with-> //*[starts-with(@attribute,'StartText')]
+        driver.findElement(By.xpath("//label[starts-with(@for,'ci')]"));
+
+        //move up
+        driver.findElement(By.xpath("//a[@class='navigation-link']/.."));
+
+        //parent
+        driver.findElement(By.xpath("//h1/parent::*"));
+        driver.findElement(By.xpath("//h1/parent::div"));
+        driver.findElement(By.xpath("//h1/.."));
+        // ancestors
+        driver.findElement(By.xpath("//h1/ancestor::*"));//all
+        driver.findElement(By.xpath("//h1/ancestor::div"));// two options
+        driver.findElement(By.xpath("//h1/ancestor::div[2]"));// one option
+
+        // following-sibling
+        driver.findElement(By.xpath("//h1/following-sibling::form"));
+    }
+
 }
