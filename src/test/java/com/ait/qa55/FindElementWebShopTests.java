@@ -93,6 +93,20 @@ public class FindElementWebShopTests {
 
         driver.findElement(By.xpath("//script/ancestor::*"));
         driver.findElement(By.xpath("//script/ancestor::head"));
+
+        // +5
+        driver.findElement(By.xpath("//script/parent::*"));
+        driver.findElement(By.xpath("//script/following-sibling::*"));
+        driver.findElement(By.xpath("//script/preceding-sibling::*"));
+
+        driver.findElement(By.xpath("//strong/ancestor::*"));
+        driver.findElement(By.xpath("//strong/following-sibling::*"));
+        driver.findElement(By.xpath("//strong/following-sibling::script"));
+
+        driver.findElement(By.xpath("//a/following-sibling::div"));
+
+        driver.findElement(By.xpath("//a/preceding-sibling::*"));
+//        driver.findElement(By.xpath("//a/preceding-sibling::div"));
         }
 
     }

@@ -130,6 +130,10 @@ public class FindElementTests {
 
         // following-sibling
         driver.findElement(By.xpath("//h1/following-sibling::form"));
+
+        // preceding-sibling
+        driver.findElement(By.xpath("//h2/preceding-sibling::*"));
     }
+
 
 }
